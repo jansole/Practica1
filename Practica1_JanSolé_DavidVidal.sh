@@ -48,23 +48,23 @@ wc19=$[($wc8 - $wc18)]
 echo "Línies eliminades al pas 4 (Shows): $wc19"
 
 max_imdb=$(awk -F, 'BEGIN{max=0}{if($13>max)(max=$13)}END{print max}' Movies15.cvs)
-echo $max_imdb
+echo "Max_imdb (Movies): $max_imdb"
 
 awk -F, -v calcul=$max_imdb 'BEGIN{OFS=","}{$16=($12*($13/calcul))}{print}' Movies15.cvs > Movies16.cvs
 
 max_tmdb=$(awk -F, 'BEGIN{max=0}{if($14>max)(max=$14)}END{print max}' Movies15.cvs)
-echo $max_tmdb
+echo "Max_tmdb (Movies): $max_tmdb"
 
 awk -F, -v calcul1=$max_tmdb 'BEGIN{OFS=","}{$17=($15*($14/calcul1))}{print}' Movies16.cvs > Movies17.cvs
 
 
 max_imdb=$(awk -F, 'BEGIN{max=0}{if($13>max)(max=$13)}END{print max}' Shows15.cvs)
-echo $max_imdb
+echo "Max_imdb (Shows): $max_imdb"
 
 awk -F, -v calcul=$max_imdb 'BEGIN{OFS=","}{$16=($12*($13/calcul))}{print}' Shows15.cvs > Shows16.cvs
 
 max_tmdb=$(awk -F, 'BEGIN{max=0}{if($14>max)(max=$14)}END{print max}' Shows15.cvs)
-echo $max_tmdb
+echo "Max_tmdb (Shows): $max_tmdb"
 
 awk -F, -v calcul1=$max_tmdb 'BEGIN{OFS=","}{$17=($15*($14/calcul1))}{print}' Shows16.cvs > Shows17.cvs
 
