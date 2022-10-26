@@ -68,3 +68,9 @@ echo "Max_tmdb (Shows): $max_tmdb"
 
 awk -F, -v calcul1=$max_tmdb 'BEGIN{OFS=","}{$17=($15*($14/calcul1))}{print}' Shows16.cvs > Shows17.cvs
 
+
+####Pas 6
+awk -F, 'BEGIN{max=0}{ if ( $12>max){max=$12}}END{print $1 $2 $9 $12}' Movies17.cvs
+awk -F, 'BEGIN{max=0}{ if ( $12>max){max=$12}}END{print $1 $2 $9 $12}' Shows17.cvs
+awk -F, 'BEGIN{max=0}{ if ( $13>max){max=$13}}END{print $1 $2 $9 $13}' Movies17.cvs
+awk -F, 'BEGIN{max=0}{ if ( $13>max){max=$12}}END{print $1 $2 $9 $13}' Shows17.cvs
